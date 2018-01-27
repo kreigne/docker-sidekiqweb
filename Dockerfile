@@ -1,4 +1,8 @@
-FROM ruby:2.3.0
+FROM ruby:2.4.0-alpine
+
+RUN mkdir /sidekiq/
+RUN apk update
+RUN apk add --no-cache gcc make g++ libpq less
 
 ADD Gemfile* /sidekiq/
 WORKDIR /sidekiq
